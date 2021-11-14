@@ -1,3 +1,7 @@
+# From psuedo-official docker image as per https://gohugo.io/getting-started/installing/#docker
+FROM klakegg/hugo:0.65.2-busybox AS hugo-source
+
+
 FROM gitpod/workspace-full
 
 ARG hugo-version=0.65.2
@@ -20,10 +24,14 @@ RUN for util in civo kubectl helm kustomize; do \
   done
 
 # Install Hugo
-RUN mkdir tmpdownload && \
-  cd tmpdownload && \
-  curl -LO https://github.com/gohugoio/hugo/releases/download/v0.65.2/hugo_v0.65.2-version_Linux-64bit.tar.gz && \
-  tar -xzf hugo*.tar.gz && \
-  sudo mv hugo /usr/local/bin && \
-  cd .. && \
-  rm -rf tmpdownload
+USER root
+COPY --from=hugo-source /bin/hugo /usr/local/bin/hugo
+USER gitpod
+
+#RUN mkdir tmpdownload && \
+#  cd tmpdownload && \
+#  curl -LO https://github.com/gohugoio/hugo/releases/download/v0.65.2/hugo_v0.65.2-version_Linux-64bit.tar.gz && \
+#  tar -xzf hugo*.tar.gz && \
+#  sudo mv hugo /usr/local/bin && \
+#  cd .. && \
+#  rm -rf tmpdownload
