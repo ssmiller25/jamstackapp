@@ -1,6 +1,6 @@
 # JAMStackApp
 
-An example JAMStack app, deployable in any k8s cluster
+An example JAMStack app, deployable in any k8s cluster.  This should be fully functaion, but you can [follow along to make your own from scratch](tutorial/)
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
