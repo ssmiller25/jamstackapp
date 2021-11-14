@@ -28,10 +28,3 @@ USER root
 COPY --from=hugo-source /bin/hugo /usr/local/bin/hugo
 USER gitpod
 
-#RUN mkdir tmpdownload && \
-#  cd tmpdownload && \
-#  curl -LO https://github.com/gohugoio/hugo/releases/download/v0.65.2/hugo_v0.65.2-version_Linux-64bit.tar.gz && \
-#  tar -xzf hugo*.tar.gz && \
-#  sudo mv hugo /usr/local/bin && \
-#  cd .. && \
-#  rm -rf tmpdownload
