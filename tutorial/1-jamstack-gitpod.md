@@ -1,6 +1,10 @@
-# Jamstack Tutorial #1 - Gitpod for Your Development Environmnet
+# Jamstack Tutorial #1 - Gitpod for Your Development Environment
 
-Outline:
+## Overview
+
+Let's start the JAMstack journey by ensuring that we have a fully working development environment.  We will be using Gitpod, which let's use build an entire development environment in the cloud.
+
+## Outline:
 
 - Why web-based environment
     - Guarantee a consistent environment for development and management
