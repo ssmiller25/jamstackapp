@@ -1,0 +1,12 @@
+image:
+  file: .gitpod.Dockerfile
+
+vscode:
+  extensions:
+    - ms-azuretools.vscode-docker
+    - ms-kubernetes-tools.vscode-kubernetes-tools
+    - vscode.markdown
+
+tasks:
+  - name: Civo Env
+    command: sh ./scripts/gitpod-civo-env.sh
