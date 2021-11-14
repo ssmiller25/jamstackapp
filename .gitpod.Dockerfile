@@ -1,10 +1,7 @@
 # From psuedo-official docker image as per https://gohugo.io/getting-started/installing/#docker
 FROM klakegg/hugo:0.65.2-busybox AS hugo-source
 
-
 FROM gitpod/workspace-full
-
-ARG hugo-version=0.65.2
 
 # Ported from Makefile.  Eventually might just force the use of a docker container for prereq...
 
