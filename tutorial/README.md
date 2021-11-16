@@ -4,5 +4,5 @@ While [this repo](https://www.github.com/ssmiller25/jamstackapp) is fully functi
 
 1. [Use GitPod for your development environment](1-jamstack-gitpod.md)
 2. [Deploy a Static Website to Civo](2-static.md)
-3. [Use External API - GitHub to host Comments](3-github-comments.md)
-4. [Deploy your Own API - Datafire](4-datafire.md)
+3. [Use External API - GitHub to host Comments](3-external-api.md)
+4. [Use Internal API - Deploy Go0commerce to ](4-internal-api.md)

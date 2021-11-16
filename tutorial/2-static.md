@@ -6,7 +6,8 @@ Now that a development environment in place, let's setup the basis of our JAMsta
 
 ## Outline
 
-- Use  https://www.civo.com/learn/using-civo-k3s-service-to-host-your-blog-in-hugo-using-github-actions, through gitpod, to build out basic
+- Use  https://www.civo.com/learn/using-civo-k3s-service-to-host-your-blog-in-hugo-using-github-actions, through gitpod, to build out basic blog
+- Demo gitpod addons to let preview happen in developer
 
 ## More infomration
 
