@@ -1,4 +1,4 @@
-# Jamstack Tutorial #3 - Use External API - GitHub to host Comments
+# Jamstack Tutorial #3 - Use External API - GitHub to Host Comments
 
 ## Overview
 
