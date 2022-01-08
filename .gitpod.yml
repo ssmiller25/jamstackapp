@@ -1,12 +1,13 @@
-image:
-  file: .gitpod.Dockerfile
-
+image: quay.io/ssmiller25/gitpod-k8s:20220105-1
+tasks:
+  - name: Login to Artifact Repositories
+    init: |
+      bash $HOME/scripts/cr-docker.sh
+      bash $HOME/scripts/cr-quay.sh
+  - name: Login/Setup Cloud Providers
+    init: |
+      bash $HOME/scripts/cloud-civo.sh
 vscode:
   extensions:
     - ms-azuretools.vscode-docker
     - ms-kubernetes-tools.vscode-kubernetes-tools
-    - vscode.markdown
-
-tasks:
-  - name: Civo Env
-    command: sh ./scripts/gitpod-civo-env.sh
