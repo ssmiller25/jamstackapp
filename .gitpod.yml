@@ -1,11 +1,11 @@
 image: quay.io/ssmiller25/gitpod-k8s:20220105-1
 tasks:
   - name: Login to Artifact Repositories
-    init: |
+    command: |
       bash $HOME/scripts/cr-docker.sh
       bash $HOME/scripts/cr-quay.sh
   - name: Login/Setup Cloud Providers
-    init: |
+    command: |
       bash $HOME/scripts/cloud-civo.sh
 vscode:
   extensions:
