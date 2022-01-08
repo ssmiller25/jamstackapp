@@ -18,6 +18,9 @@ One time setup for Civo
 
     ```sh
     gp env CIVO_API_KEY=<api key here>
+    gp env CIVO_REGION=NYC1  # Or any other legitimate region
+    gp env DOCKER_USERNAME=docker_username
+    gp env DOCKER_PASSWORD=docker_password
     ```
 
 - Relaunch the environment.  Your Civo environment should be setup, with all active clusters imported in.
