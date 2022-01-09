@@ -80,5 +80,6 @@ developing immediately.  From this base, we can now begin developing and deployi
 
 ## Additional Information
 
+- [Gitpod-K8S](https://github.com/ssmiller25/gitpod-k8s)
 - [Civo Online Meetup #14 - Youtube](https://www.youtube.com/watch?v=wQ9LtQ7uaeY&t=1416s)
 - [Philippe Charrière GitPod Repo](https://gitlab.com/k33g_org/bob)
