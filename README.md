@@ -4,6 +4,10 @@ An example JAMStack app, deployable in any k8s cluster.  This should be fully fu
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
+## Blog Articles
+
+- [Civo Development Environment with Gitpod](https://www.civo.com/learn/civo-development-environment-with-gitpod)
+
 ## Environments
 
 Environment Setup Below.  All assumes you are running for GitPod, although not necessarily a requirement.
