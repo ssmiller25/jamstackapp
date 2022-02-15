@@ -23,7 +23,7 @@ tasks:
     command: |
       bash $HOME/scripts/00-cloudinit.sh
   - name: Install Hugo
-    command: |
+    init: |
       brew install hugo
 vscode:
   extensions:
