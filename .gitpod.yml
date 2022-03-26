@@ -1,4 +1,5 @@
-image: quay.io/ssmiller25/gitpod-k8s:latest
+#image: quay.io/ssmiller25/gitpod-k8s:latest
+image: quay.io/ssmiller25/gitpod-k8s:pr-13
 tasks:
   - name: Login to Cloud Resources
     command: |
