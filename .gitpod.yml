@@ -1,11 +1,7 @@
-image: quay.io/ssmiller25/gitpod-k8s:latest
 tasks:
   - name: Login to Cloud Resources
     command: |
       bash $HOME/scripts/00-cloudinit.sh
-  - name: Install Hugo
-    init: |
-      brew install hugo
 vscode:
   extensions:
     - ms-azuretools.vscode-docker
