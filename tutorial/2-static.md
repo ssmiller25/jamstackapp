@@ -27,6 +27,8 @@ RUN brew install hugo
 Edit your `.gitpod.yml` configuration, and add the following taskcontents
 
 ```yaml
+image:
+  file: .gitpod.Dockerfile
 tasks:
   - name: Login to Cloud Resources
     command: |
