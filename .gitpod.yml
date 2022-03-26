@@ -1,5 +1,4 @@
-#image: quay.io/ssmiller25/gitpod-k8s:latest
-image: quay.io/ssmiller25/gitpod-k8s:homebrew-env
+image: quay.io/ssmiller25/gitpod-k8s:latest
 tasks:
   - name: Login to Cloud Resources
     command: |
