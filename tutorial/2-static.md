@@ -84,6 +84,103 @@ Click the "Open Browser", and a new window should appear with the website as it 
 
 ![Initial Hugo Site](images/2-initial-site.png)
 
-## More infomration
+Press `Ctrl + C` to exit the hugo session when finished.
+
+If everything looks good, let's tell Hugo to build the site:
+
+```sh
+hugo
+```
+
+## Hosting on Civo
+
+Ok, now let's leverage Gitpod to push a docker container to Civo.  In production you would normally embed this into a pipeline [as described in Alejandro's article](https://www.civo.com/learn/using-civo-k3s-service-to-host-your-blog-in-hugo-using-github-actions), but we'll leave this as a manual deployment as we are developing our new app.  First, let's create a new Civo cluster.  From the Gitpod command interface:
+
+```sh
+cd ${GITPOD_REPO_ROOT}
+civo k3s create jamstacksite -n 2 --wait
+civo k3s config jamstacksite  --save --merge
+kubectl config use-context jamstacksite
+kubectl get nodes  #Ensure we are seeing nodes from the new cluster
+```
+
+Create a `Dockerfile` in the root of your repository:
+
+```Dockerfile
+FROM nginx
+COPY ./jamstacksite/public /usr/share/nginx/html
+```
+
+Create a `k8s.yaml` to deploy the site.  Make sure to change the `ssmiller25` to a your username
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jamstackapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jamstackapp
+  template:
+    metadata:
+      labels:
+        app: jamstackapp
+    spec:
+      containers:
+        - image: ssmiller25/jamstackapp:latest
+          name: jamstackapp
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jamstackapp
+  labels:
+    app: jamstackapp
+spec:
+  ports:
+    - name: "http"
+      port: 80
+  selector:
+    app: jamstackapp
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jamstackapp-ingress
+  labels:
+    app: jamstackapp
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jamstackapp
+                port: 
+                  number: 80
+      # Not required, but useful if serving multiple hostnames through the same ingress
+      #host: CLUSTER_ID.k8s.civo.com
+```
+
+How, let's build and push our docker container.  Make sure to substitute `ssmiller25` with your dockerhub username:
+
+```sh
+docker buildx build --push -t ssmiller25/jamstackapp:latest .
+```
+
+Deploy the kubernetes manifests
+
+```sh
+kubectl apply -f k8s.yaml
+```
+
+## More Information
 
 - [Using Civo to Host Your Blog in Hugo](https://www.civo.com/learn/using-civo-k3s-service-to-host-your-blog-in-hugo-using-github-actions)
