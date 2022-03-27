@@ -57,7 +57,7 @@ hugo new site jamstacksite -f yml
 A new `jamstackapp` directory will be created in your repo, with the standard layout for a hugo site.  We are going to use the [PaperMod theme](https://github.com/adityatelange/hugo-PaperMod) to get started, but most others should work.
 
 ```sh
-git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git jamestacksite/themes/papermod
+git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git jamstacksite/themes/papermod
 ```
 
 Update `jamstacksite/config.yml` to match the following:
@@ -66,9 +66,19 @@ Update `jamstacksite/config.yml` to match the following:
 baseURL: http://example.org/
 languageCode: en-us
 title: "My JamStack Site"
-theme: "PaperMod"
+theme: "papermod"
 ```
 
+Now let's make sure we have a functional site.  Run the following commands in the gitpod terminal:
+
+```sh
+cd jamstacksite/
+hugo serve
+```
+
+Once hugo begin serving, Gitpod will detect the newly open port and give you a chance to preview the site:
+
+~[Gitpod Open Port]
 
 ## More infomration
 
