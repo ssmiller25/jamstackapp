@@ -76,9 +76,13 @@ cd jamstacksite/
 hugo serve
 ```
 
-Once hugo begin serving, Gitpod will detect the newly open port and give you a chance to preview the site:
+Once hugo begin serving, Gitpod will detect the newly open port and give you a chance to preview the site.
 
-~[Gitpod Open Port]
+![Gitpod Open Port](images/2-gitpod-hugo-serve.png)
+
+Click the "Open Browser", and a new window should appear with the website as it is now:
+
+![Initial Hugo Site](images/2-initial-site.png)
 
 ## More infomration
 
