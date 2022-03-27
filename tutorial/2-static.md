@@ -60,6 +60,15 @@ A new `jamstackapp` directory will be created in your repo, with the standard la
 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git jamestacksite/themes/papermod
 ```
 
+Update `jamstacksite/config.yml` to match the following:
+
+```yaml
+baseURL: http://example.org/
+languageCode: en-us
+title: "My JamStack Site"
+theme: "PaperMod"
+```
+
 
 ## More infomration
 
