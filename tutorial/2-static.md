@@ -4,9 +4,9 @@
 
 Now that a [Gitpod development environment in place](https://www.civo.com/learn/civo-development-environment-with-gitpod), let's setup the groundwork for the **M** part in JAMstack - a markdown oriented static site.  This site will host all our user-accessible static content, as well as our dynamic frontend pieces as they are implemented.
 
-## Environment Setup
+## Enviornment Setup 
 
-We will be utilizing [Hugo](https://gohugo.io/) for our static site generation.  A large part of this tutorial will be based on [Alejandro excellent article on deploying a Hugo site](https://www.civo.com/learn/using-civo-k3s-service-to-host-your-blog-in-hugo-using-github-actions), but leveraging the Gitpod environment to make development and deployment more streamlined
+We will be utilizing [Hugo](https://gohugo.io/) for our static site generation.  A large part of this tutorial will be based on [Alejandro's excellent article on deploying a Hugo site](https://www.civo.com/learn/using-civo-k3s-service-to-host-your-blog-in-hugo-using-github-actions), but leveraging the Gitpod environment for development and deployment.
 
 First, ensure your Gitpod environment is setup and has access to Civo:
 
@@ -14,9 +14,7 @@ First, ensure your Gitpod environment is setup and has access to Civo:
 civo k3s list  #Ensure no error is reported back 
 ```
 
-As we are using Hugo, let's set that up in our Gitpod environment.  Your Gitpod environment has access to LinuxBrew, which is the easiest way to install such thing.  
-
-Create a `.gitpod.Dockerfile`, and add the following
+As we are using Hugo, let's set that up in our Gitpod environment.  Your Gitpod environment has access to Homebrew, so we will use that.  Although there are several ways to install in a Gitpod environment, I prefer to embed software that will be used regularly into a custom Docker image for my environment.  Create a `.gitpod.Dockerfile`, and add the following:
 
 ```text
 FROM quay.io/ssmiller25/gitpod-k8s:latest
@@ -24,7 +22,8 @@ FROM quay.io/ssmiller25/gitpod-k8s:latest
 # Install hugo
 RUN brew install hugo
 ```
-Edit your `.gitpod.yml` configuration, and add the following taskcontents
+
+Edit your `.gitpod.yml` configuration, and change the `image` link to match below.  (the rest of the file was setup in the [first article](https://www.civo.com/learn/civo-development-environment-with-gitpod))
 
 ```yaml
 image:
@@ -39,9 +38,28 @@ vscode:
     - ms-kubernetes-tools.vscode-kubernetes-tools
 ```
 
+Save and commit all your changes.  Then relaunch Gitpod for your repository.  The first time you open **will take a while (several minutes)!**  Once the new container is build, the launch time should be drastically reduced.  Once up, let's verify we have Hugo installed.  Run this from the terminal in your Gitpod instance
 
-- Use  https://www.civo.com/learn/using-civo-k3s-servic e-to-host-your-blog-in-hugo-using-github-actions, through gitpod, to build out basic blog
-- Demo gitpod addons to let preview happen in developer
+```sh
+hugo version
+```
+
+If that returns a version number, we are good
+
+## Initial Site Development
+
+Let's use hugo to setup an initial site:
+
+```sh
+hugo new site jamstacksite -f yml
+```
+
+A new `jamstackapp` directory will be created in your repo, with the standard layout for a hugo site.  We are going to use the [PaperMod theme](https://github.com/adityatelange/hugo-PaperMod) to get started, but most others should work.
+
+```sh
+git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git jamestacksite/themes/papermod
+```
+
 
 ## More infomration
 

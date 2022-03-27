@@ -12,6 +12,7 @@ An example JAMStack app, deployable in any k8s cluster.  This should be fully fu
 
 Environment Setup Below.  All assumes you are running for GitPod, although not necessarily a requirement.
 
+
 ### Civo
 
 One time setup for Civo 
@@ -29,3 +30,24 @@ One time setup for Civo
 
 - Relaunch the environment.  Your Civo environment should be setup, with all active clusters imported in.
 
+
+## Cloning/Updated Repo with Theme Submodule
+
+As the theme is pulled in with a submodule, ensure when you clone this repo it comes down as well
+
+```sh
+# Initial Clone
+git clone --recurse-submodules https://github.com/ssmiller25/jamestackapp.git
+```
+
+If you are missing the submodule in an existing clone
+
+```sh
+git submodule update --init --recursive
+```
+
+Updating the submodule with the latest upstream changes
+
+```sh
+git submodule update --remote --merge
+```
