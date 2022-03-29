@@ -99,7 +99,7 @@ Ok, now let's leverage Gitpod to push a docker container to Civo.  In production
 ```sh
 cd ${GITPOD_REPO_ROOT}
 civo k3s create jamstacksite -n 2 --wait
-civo k3s config jamstacksite  --save --merge
+civo k3s config jamstacksite --save --merge
 kubectl config use-context jamstacksite
 kubectl get nodes  #Ensure we are seeing nodes from the new cluster
 ```
@@ -180,6 +180,14 @@ Deploy the kubernetes manifests
 ```sh
 kubectl apply -f k8s.yaml
 ```
+
+Now let's check out the site.  Find out the public IP of your cluster by running `civo k3s show jamstacksite` and look for the "DNS A record".  Go to that address, and you should see the site that you previews on your Gitpod environment!
+
+![Initial Hugo Site](images/2-hosted-site.png)
+
+## Conclusion
+
+We now have a static site, hosted on Civo: The **M** In our JAMStack.  With this basis, we can begin exploring implementing more dynamic content leveraging Javascript and APIs - both externally as well as internally.
 
 ## More Information
 
