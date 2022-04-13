@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jamstackapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jamstackapp
+  template:
+    metadata:
+      labels:
+        app: jamstackapp
+    spec:
+      containers:
+        - image: ssmiller25/jamstackapp:latest
+          name: jamstackapp
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jamstackapp
+  labels:
+    app: jamstackapp
+spec:
+  ports:
+    - name: "http"
+      port: 80
+  selector:
+    app: jamstackapp
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jamstackapp-ingress
+  labels:
+    app: jamstackapp
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jamstackapp
+                port: 
+                  number: 80
+      # Not required, but useful if serving multiple hostnames through the same ingress
+      #host: CLUSTER_ID.k8s.civo.com

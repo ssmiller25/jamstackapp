@@ -1,0 +1,19 @@
+# Created by https://www.toptal.com/developers/gitignore/api/hugo
+# Edit at https://www.toptal.com/developers/gitignore?templates=hugo
+
+### Hugo ###
+# Generated files by hugo
+/jamstacksite/public/
+/jamstacksite/resources/_gen/
+/jamstacksite/assets/jsconfig.json
+/jamstacksitehugo_stats.json
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+
+# Temporary lock file while building
+/jamstacksite/.hugo_build.lock
+
+# End of https://www.toptal.com/developers/gitignore/api/hugo
