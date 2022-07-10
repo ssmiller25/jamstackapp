@@ -1,4 +1,4 @@
-# Jamstack Tutorial #3 - Use External API - GitHub to Host Comments
+# Jamstack Tutorial #5 - Use External API - GitHub to Host Comments
 
 ## Overview
 
@@ -33,5 +33,5 @@ With a static site now running, let's look at the **J** and **A** parts of the J
 
     - Commit to main, check it out!
 - Notes
-    - This does require a github account.  If your audience is more generic, you may wish to look at 
+  - This does require a github account.  If your audience is more generic, you may wish to look at other Disque or Facebook Messages
 

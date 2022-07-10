@@ -1,19 +1,14 @@
-# Jamstack Tutorial #4 - Build An Internal API with Gocommerce
+# Jamstack Tutorial #4 - Build An Internal Forms API
 
 ## Overview
 
-After experimenting with external APIs, let's roll out an internal API.  Lots of options exist to build out your own API.  As an example, we will look at 
-deploying [Gocommerse](https://github.com/netlify/gocommerce), a Go based E-commerce platform that leverages JAMStack technologies to run a E-commerce site.
+After deploying our authentication service, let's build a simple form processor that will accept form requests, and process them if the appropriate authentication is in place.
 
-## Outline
+## Language: Python
 
-- Internal services
-    - Anything that exposes an API that can be queried with Javascript
-    - Incredible flexible - it should be a data layer that is rendered by Javascript side code.
-- Downsides
-    - Security is on the developer.  As the API is fully exposes, must ensure appropriate security is in place to prevent misuse.
-- [Gocommerse](https://github.com/netlify/gocommerce)
-    - Clone repo as a submodule.  A simple mono-repo module.
-    - Look at building docker container.
-    - Deploy docker container, and develop yaml to deploy to Civo cluster
-    - Adjust front-end to include items for sale
+Mostly easy of use and debugging.
+
+TODO: Intro to Flask
+TODO: JWT processing in Flask
+TODO: Endpoint for form processing
+TODO: Endpoint for form retrieval (should only allow same user to access)
