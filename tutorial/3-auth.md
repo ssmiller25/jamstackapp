@@ -1,3 +1,5 @@
+# Jamstack Alternative #3 - PocketBase for ALL https://pocketbase.io/
+
 # Jamstack Tutorial #3 - Authentication
 
 As the A in JAMStack is API.  While lots of public APIs exist, sometimes we don't want to necessarily allow users to access ALL our APIs without some sort of credentials.  In the JAMStack world, authentication becomes a bit tricky.  We sometimes call multiple independent services.  How do we authenticate to those services in a consistent manner?
