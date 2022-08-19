@@ -1,0 +1,59 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pocketbase
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pocketbase
+  template:
+    metadata:
+      labels:
+        app: pocketbase
+    spec:
+      containers:
+        - image: ssmiller25/pocketbase:latest
+          name: pocketbase
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pocketbase
+  labels:
+    app: pocketbase
+spec:
+  ports:
+    - name: "http"
+      port: 8090
+  selector:
+    app: pocketbase
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pocketbase-ingress
+  labels:
+    app: pocketbase
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - http:
+        paths:
+          - path: "/_"
+            pathType: Prefix
+            backend:
+              service:
+                name: pocketbase
+                port: 
+                  number: 8090
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: pocketbase
+                port: 
+                  number: 8090

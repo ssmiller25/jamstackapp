@@ -7,6 +7,12 @@
 - Stick with [plain javascript](https://plainjs.com/).  While advantages to using Typescript, or larger front-end frameworks, sticking with basics for this tutorial
 
 
+## But first - some security
+
+This far we've just exposed a non-HTTP service.  As we are potentially planning to add more data features, as well as leverage external APIs, we should enable HTTPS communication to our site.  Fortunatly the [Let's Encrypt]
+
+We will be using the Civo Marketplace App for [Cert Manager](https://www.civo.com/marketplace/cert-manager).  The Kubernetes Manifests have already been adjusted in this repo to work correctly for most deployments.  More details at [Cert Manager's Documentation](https://cert-manager.io/docs/tutorials/acme/http-validation/)
+
 # Jamstack Tutorial #3 - Authentication
 
 A
